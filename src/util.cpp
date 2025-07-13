@@ -4425,8 +4425,8 @@ QCString correctId(const QCString &s)
 /*! Converts a string to an XML-encoded string */
 QCString convertToXML(const QCString &s, bool keepEntities)
 {
-  if (s.isEmpty()) return s;
-  GrowBuf growBuf;
+	if (s.isEmpty()) return s;
+	GrowBuf growBuf(s.length()*6+1);
   const char *p = s.data();
   char c = 0;
   while ((c=*p++))
@@ -4476,8 +4476,8 @@ QCString convertToXML(const QCString &s, bool keepEntities)
 /*! Converts a string to a HTML-encoded string */
 QCString convertToHtml(const QCString &s,bool keepEntities)
 {
-  if (s.isEmpty()) return s;
-  GrowBuf growBuf;
+	if (s.isEmpty()) return s;
+	GrowBuf growBuf(s.length()*6+1);
   const char *p=s.data();
   char c = 0;
   while ((c=*p++))
@@ -4560,41 +4560,38 @@ QCString convertToJSString(const QCString &s,bool keepEntities,bool singleQuotes
 
 QCString convertCharEntitiesToUTF8(const QCString &str)
 {
-  if (str.isEmpty()) return QCString();
-
-  std::string s = str.data();
-  static const reg::Ex re(R"(&\a\w*;)");
-  reg::Iterator it(s,re);
-  reg::Iterator end;
-
-  GrowBuf growBuf;
-  size_t p=0, i=0, l=0;
-  for (; it!=end ; ++it)
-  {
-    const auto &match = *it;
-    p = match.position();
-    l = match.length();
-    if (p>i)
-    {
-      growBuf.addStr(s.substr(i,p-i));
-    }
-    QCString entity(match.str());
-    HtmlEntityMapper::SymType symType = HtmlEntityMapper::instance().name2sym(entity);
-    const char *code=nullptr;
-    if (symType!=HtmlEntityMapper::Sym_Unknown && (code=HtmlEntityMapper::instance().utf8(symType)))
-    {
-      growBuf.addStr(code);
-    }
-    else
-    {
-      growBuf.addStr(entity);
-    }
-    i=p+l;
-  }
-  growBuf.addStr(s.substr(i));
-  growBuf.addChar(0);
-  //printf("convertCharEntitiesToUTF8(%s)->%s\n",qPrint(s),growBuf.get());
-  return growBuf.get();
+	if (str.isEmpty()) return QCString();
+	
+	GrowBuf growBuf(str.length()+1);
+	const char *p = str.data();
+	while (*p)
+	{
+	if (*p=='&')
+	{
+	const char *start = p;
+	const char *q = p + 1;
+	while (*q && (isalnum((unsigned char)*q) || *q=='#')) q++;
+	if (*q==';')
+	{
+	QCString entity(start,q-start+1);
+	HtmlEntityMapper::SymType symType = HtmlEntityMapper::instance().name2sym(entity);
+	const char *code=nullptr;
+	if (symType!=HtmlEntityMapper::Sym_Unknown && (code=HtmlEntityMapper::instance().utf8(symType)))
+	{
+	growBuf.addStr(code);
+	}
+	else
+	{
+	growBuf.addStr(entity);
+	}
+	p = q + 1;
+	continue;
+	}
+	}
+	growBuf.addChar(*p++);
+	}
+	growBuf.addChar(0);
+	return growBuf.get();
 }
 
 /*! Returns the standard string that is generated when the \\overload
