@@ -29,6 +29,8 @@
 
 #include <ctype.h>
 #include <vector>
+#include <string_view>
+#include <array>
 #include <stdio.h>
 #include "xml.h"
 
@@ -317,19 +319,20 @@ static void addElement(yyscan_t yyscanner)
   }
 }
 
-static std::string trimSpaces(const std::string &str)
+static std::string_view trimSpaces(std::string_view str)
 {
-  const int l = static_cast<int>(str.length());
-  int s=0, e=l-1;
-  while (s<l && isspace(str.at(s))) s++;
-  while (e>s && isspace(str.at(e))) e--;
-  return str.substr(s,1+e-s);
+  size_t s = 0;
+  size_t e = str.size();
+  while (s<e && std::isspace(static_cast<unsigned char>(str[s]))) ++s;
+  while (e>s && std::isspace(static_cast<unsigned char>(str[e-1]))) --e;
+  return str.substr(s,e-s);
 }
 
 static void addCharacters(yyscan_t yyscanner)
 {
   struct yyguts_t *yyg = (struct yyguts_t*)yyscanner;
-  std::string data = trimSpaces(yyextra->data);
+  std::string_view dataView = trimSpaces(yyextra->data);
+  std::string data{dataView};
   if (!yyextra->encoding.empty() && !yyextra->transcodeFunc(data,yyextra->encoding.c_str()))
   {
     reportError(yyscanner,"failed to transcode string '"+data+"' from encoding '"+yyextra->encoding+"' to UTF-8");
@@ -355,7 +358,7 @@ static void addAttribute(yyscan_t yyscanner)
   {
     reportError(yyscanner,"failed to transcode string '"+val+"' from encoding '"+yyextra->encoding+"' to UTF-8");
   }
-  yyextra->attrs.insert(std::make_pair(yyextra->attrName,val));
+  yyextra->attrs.emplace(std::move(yyextra->attrName),std::move(val));
 }
 
 static void reportError(yyscan_t yyscanner,const std::string &msg)
@@ -371,9 +374,13 @@ static void reportError(yyscan_t yyscanner,const std::string &msg)
   }
 }
 
-static const char *entities_enc[] = { "amp", "quot", "gt", "lt", "apos" };
-static const char  entities_dec[] = { '&',   '"',    '>',  '<',  '\''   };
-static const int   num_entities = 5;
+static const std::array<std::pair<std::string_view,char>,5> entityMap = {{
+  {"amp",  '&'},
+  {"quot", '"'},
+  {"gt",   '>'},
+  {"lt",   '<'},
+  {"apos", '\''}
+}};
 
 // replace character entities such as &amp; in txt and return the string where entities
 // are replaced
@@ -401,14 +408,16 @@ static std::string processData(yyscan_t yyscanner,const char *txt,yy_size_t len)
           break;
         }
       }
-      bool found=false;
-      for (int e=0; !found && e<num_entities; e++)
+      bool found = false;
+      for (const auto &entry : entityMap)
       {
-        if (strcmp(entity,entities_enc[e])==0)
+        if (strncmp(entity,entry.first.data(),entry.first.size())==0 &&
+            entity[entry.first.size()]=='\0')
         {
-          result+=entities_dec[e];
-          i+=strlen(entities_enc[e])+1;
+          result+=entry.second;
+          i+=entry.first.size()+1;
           found=true;
+          break;
         }
       }
       if (!found)
