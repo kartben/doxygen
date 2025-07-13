@@ -2319,7 +2319,7 @@ static void writeAlphabeticalClassList(OutputList &ol, ClassDef::CompoundType ct
   alphaLinks += "</div>\n";
   ol.writeString(alphaLinks);
 
-  std::map<std::string, std::vector<const ClassDef*> > classesByLetter;
+std::unordered_map<std::string, std::vector<const ClassDef*>> classesByLetter;
 
   // fill the columns with the class list (row elements in each column,
   // expect for the columns with number >= itemsInLastRow, which get one
@@ -2339,15 +2339,7 @@ static void writeAlphabeticalClassList(OutputList &ol, ClassDef::CompoundType ct
       if (!letter.empty())
       {
         letter = convertUTF8ToUpper(letter);
-        auto it = classesByLetter.find(letter);
-        if (it!=classesByLetter.end()) // add class to the existing list
-        {
-          it->second.push_back(cd.get());
-        }
-        else // new entry
-        {
-          classesByLetter.emplace(letter, std::vector<const ClassDef*>({ cd.get() }));
-        }
+        classesByLetter[letter].push_back(cd.get());
       }
     }
   }
@@ -2364,12 +2356,22 @@ static void writeAlphabeticalClassList(OutputList &ol, ClassDef::CompoundType ct
               });
   }
 
+  // prepare sorted output
+  std::vector<std::pair<std::string,const std::vector<const ClassDef*>*>> sorted;
+  sorted.reserve(classesByLetter.size());
+  for (const auto &entry : classesByLetter)
+  {
+    sorted.emplace_back(entry.first,&entry.second);
+  }
+  std::sort(sorted.begin(), sorted.end(),
+            [](const auto &a,const auto &b){ return qstricmp_sort(a.first.c_str(),b.first.c_str())<0; });
+
   // generate table
-  if (!classesByLetter.empty())
+  if (!sorted.empty())
   {
     ol.writeString("<div class=\"classindex\">\n");
     int counter=0;
-    for (const auto &cl : classesByLetter)
+    for (const auto &cl : sorted)
     {
       QCString parity = (counter++%2)==0 ? "even" : "odd";
       ol.writeString("<dl class=\"classindex " + parity + "\">\n");
@@ -2387,7 +2389,7 @@ static void writeAlphabeticalClassList(OutputList &ol, ClassDef::CompoundType ct
       ol.writeString("</dt>\n");
 
       // write class links
-      for (const auto &cd : cl.second)
+      for (const auto &cd : *cl.second)
       {
         ol.writeString("<dd>");
         QCString namesp,cname;
