@@ -113,7 +113,7 @@ class Doxygen
     static NamespaceAliasInfoMap     namespaceAliasMap;
     static GroupLinkedMap           *groupLinkedMap;
     static NamespaceLinkedMap       *namespaceLinkedMap;
-    static StringMap                 tagDestinationMap;
+    static StringUnorderedMap        tagDestinationMap;
     static StringUnorderedSet        tagFileSet;
     static MemberGroupInfoMap        memberGroupInfoMap;
     static StringUnorderedSet        expandAsDefinedSet;

@@ -152,7 +152,7 @@ FileNameLinkedMap    *Doxygen::mscFileNameLinkedMap = nullptr;     // msc files
 FileNameLinkedMap    *Doxygen::diaFileNameLinkedMap = nullptr;     // dia files
 FileNameLinkedMap    *Doxygen::plantUmlFileNameLinkedMap = nullptr;// plantuml files
 NamespaceAliasInfoMap Doxygen::namespaceAliasMap;            // all namespace aliases
-StringMap             Doxygen::tagDestinationMap;            // all tag locations
+StringUnorderedMap    Doxygen::tagDestinationMap;            // all tag locations
 StringUnorderedSet    Doxygen::tagFileSet;                   // all tag file names
 StringUnorderedSet    Doxygen::expandAsDefinedSet;           // all macros that should be expanded
 MemberGroupInfoMap    Doxygen::memberGroupInfoMap;           // dictionary of the member groups heading
