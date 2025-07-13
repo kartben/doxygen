@@ -13,7 +13,7 @@
  *
  */
 
-#include <map>
+#include <unordered_map>
 #include <string.h>
 #include <cstdint>
 
@@ -26,8 +26,8 @@
 
 class ResourceMgr::Private
 {
-  public:
-    std::map<std::string,Resource> resources;
+	public:
+	std::unordered_map<std::string,Resource> resources;
 };
 
 ResourceMgr &ResourceMgr::instance()
