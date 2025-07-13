@@ -24,7 +24,6 @@
 
 #include <memory>
 #include <vector>
-#include <map>
 #include <unordered_map>
 #include <string>
 #include <array>
@@ -129,7 +128,7 @@ class SearchIndexExternal
     void addWord(const QCString &word,bool hiPriority);
     void write(const QCString &file);
   private:
-    std::map<std::string,SearchDocEntry> m_docEntries;
+    std::unordered_map<std::string,SearchDocEntry> m_docEntries;
     SearchDocEntry *m_current = nullptr;
 };
 

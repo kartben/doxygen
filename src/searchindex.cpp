@@ -17,7 +17,6 @@
 #include <ctype.h>
 #include <assert.h>
 #include <mutex>
-#include <map>
 #include <unordered_map>
 
 #include "searchindex.h"
