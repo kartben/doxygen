@@ -46,6 +46,7 @@
 #include "docparser.h"
 #include "docsets.h"
 #include "dot.h"
+#include "dtscode.h"
 #include "doxygen.h"
 #include "eclipsehelp.h"
 #include "emoji.h"
@@ -11481,6 +11482,8 @@ void initDoxygen()
                                                          make_parser_factory<XMLCodeParser>());
   Doxygen::parserManager->registerParser("sql",          make_parser_factory<NullOutlineParser>(),
                                                          make_parser_factory<SQLCodeParser>());
+  Doxygen::parserManager->registerParser("dts",          make_parser_factory<NullOutlineParser>(),
+                                                         make_parser_factory<DTSCodeParser>());
   Doxygen::parserManager->registerParser("md",           make_parser_factory<MarkdownOutlineParser>(),
                                                          make_parser_factory<FileCodeParser>());
   Doxygen::parserManager->registerParser("lex",          make_parser_factory<LexOutlineParser>(),

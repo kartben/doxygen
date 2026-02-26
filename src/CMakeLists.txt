@@ -93,6 +93,7 @@ set(LEX_FILES
     constexp
     declinfo
     defargs
+    dtscode
     doctokenizer
     fortrancode
     fortranscanner

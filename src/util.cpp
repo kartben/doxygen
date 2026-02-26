@@ -5082,6 +5082,7 @@ static std::vector<Lang2ExtMap> g_lang2extMap =
   { "vhdl",        "vhdl",          SrcLangExt::VHDL,     ".vhdl"},
   { "xml",         "xml",           SrcLangExt::XML,      ".xml" },
   { "sql",         "sql",           SrcLangExt::SQL,      ".sql" },
+  { "dts",         "dts",           SrcLangExt::Cpp,      ".dts" },
   { "md",          "md",            SrcLangExt::Markdown, ".md"  },
   { "lex",         "lex",           SrcLangExt::Lex,      ".l"   },
 };
@@ -5189,6 +5190,7 @@ void addCodeOnlyMappings()
 {
   updateLanguageMapping(".xml",   "xml");
   updateLanguageMapping(".sql",   "sql");
+  updateLanguageMapping(".dts",   "dts");
 }
 
 SrcLangExt getLanguageFromFileName(const QCString& fileName, SrcLangExt defLang)

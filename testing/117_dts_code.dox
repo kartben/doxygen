@@ -1,0 +1,28 @@
+// objective: test DTS code highlighting in code blocks
+// check: indexpage.xml
+/** \mainpage
+ * \code{.dts}
+ * /dts-v1/;
+ * /memreserve/ 0x1000 0x200;
+ *
+ * / {
+ *   /* block comment */
+ *   model = "DTS test board";
+ *   aliases {
+ *     serial0 = &uart0; // line comment
+ *   };
+ * };
+ * \endcode
+ *
+ * ```dts
+ * /plugin/;
+ * / {
+ *   fragment@0 {
+ *     target = <&uart0>;
+ *     __overlay__ {
+ *       status = "okay";
+ *     };
+ *   };
+ * };
+ * ```
+ */

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>My Project</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+      <para>
+        <programlisting filename=".dts">
+          <codeline>
+            <highlight class="keyword">/dts-v1/</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="keyword">/memreserve/</highlight>
+            <highlight class="normal"><sp/>0x1000<sp/>0x200;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal">/<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="comment">/*<sp/>block<sp/>comment<sp/>*/</highlight>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/>model<sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"DTS<sp/>test<sp/>board"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/>aliases<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/>serial0<sp/>=<sp/></highlight>
+            <highlight class="preprocessor">&amp;uart0</highlight>
+            <highlight class="normal">;<sp/></highlight>
+            <highlight class="comment">//<sp/>line<sp/>comment</highlight>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/>};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">};</highlight>
+          </codeline>
+        </programlisting>
+      </para>
+      <para>
+        <programlisting filename=".dts">
+          <codeline>
+            <highlight class="keyword">/plugin/</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">/<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/>fragment@0<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/>target<sp/>=<sp/>&lt;</highlight>
+            <highlight class="preprocessor">&amp;uart0</highlight>
+            <highlight class="normal">&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/>__overlay__<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"okay"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/>};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">};</highlight>
+          </codeline>
+        </programlisting>
+      </para>
+    </detaileddescription>
+    <location file="117_dts_code.dox"/>
+  </compounddef>
+</doxygen>

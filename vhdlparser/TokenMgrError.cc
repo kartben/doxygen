@@ -10,7 +10,7 @@ namespace parser {
    * token manager to indicate a lexical error.
    * Parameters :
    *    EOFSeen     : indicates if EOF caused the lexical error
-   *    curLexState : lexical state in which this error occurred
+   *    lexState    : lexical state in which this error occurred
    *    errorLine   : line number when the error occurred
    *    errorColumn : column number when the error occurred
    *    errorAfter  : prefix that was seen before this error occurred
@@ -22,8 +22,8 @@ namespace parser {
     JJString s;
     stringstream<JJString> ss;
     ss << "Lexical error at line " << errorLine << " column " << errorColumn
-       << ".  Encountered: " << curChar << "(" << (int)curChar
-       << ") after : \"" << errorAfter.c_str() << "\"";
+       << ".  Encountered: '" << curChar << "' (" << (int)curChar
+       << ") after : \"" << errorAfter.c_str() << "\" (in lexical state " << lexState << ")";
     return (JJString)ss.rdbuf()->str();
 #endif
     return EMPTY;
@@ -115,4 +115,4 @@ JJSimpleString addUnicodeEscapes(const JJString& str) {
 
 }
 }
-/* JavaCC - OriginalChecksum=a1a009b68896ee1d7f7d1528d80d284b (do not edit this line) */
+/* JavaCC - OriginalChecksum=e8c69f88c3b840e46d77e9f71887c91c (do not edit this line) */
