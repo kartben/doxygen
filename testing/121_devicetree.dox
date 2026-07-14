@@ -1,0 +1,33 @@
+// objective: test syntax highlighting of Devicetree (.dts) code
+// check: indexpage.xml
+/** \mainpage
+ * \code{.dts}
+ * /dts-v1/;
+ * #include <dt-bindings/gpio/gpio.h>
+ *
+ * / {
+ *      model = "Example Board";
+ *      compatible = "acme,example-board";
+ *      #address-cells = <1>;
+ *      #size-cells = <1>;
+ *
+ *      // single line comment
+ *      leds {
+ *              compatible = "gpio-leds";
+ *              led0: led_0 {
+ *                      gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+ *                      label = "LED 0";
+ *              };
+ *      };
+ * };
+ *
+ * &uart0 {
+ *      status = "okay";
+ *      current-speed = <115200>;
+ * };
+ *
+ * /delete-node/ &led0;
+ * \endcode
+ *
+ * \include example.dts
+ */

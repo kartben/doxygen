@@ -200,7 +200,8 @@ enum class Relationship   {
   SRCLANGEXT(Markdown , 0x10000, Markdown) \
   SRCLANGEXT(SQL      , 0x20000, SQL) \
   SRCLANGEXT(Slice    , 0x40000, Slice) \
-  SRCLANGEXT(Lex      , 0x80000, Lex)
+  SRCLANGEXT(Lex      , 0x80000, Lex) \
+  SRCLANGEXT(DTS      , 0x100000, Devicetree)
 
   /* SRCLANGEXT(Tcl      , 0x08000, Tcl ) // no longer supported */
 

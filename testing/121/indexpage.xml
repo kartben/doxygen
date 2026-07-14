@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>My Project</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+      <para>
+        <programlisting filename=".dts">
+          <codeline>
+            <highlight class="keyword">/dts-v1/</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="preprocessor">#include<sp/>&lt;dt-bindings/gpio/gpio.h&gt;</highlight>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal">/<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">model</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"Example<sp/>Board"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">compatible</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"acme,example-board"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">#address-cells</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;1&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">#size-cells</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;1&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="comment">//<sp/>single<sp/>line<sp/>comment</highlight>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/><sp/>leds<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">compatible</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"gpio-leds"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordflow">led0:</highlight>
+            <highlight class="normal"><sp/>led_0<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">gpios</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;</highlight>
+            <highlight class="keywordflow">&amp;gpio0</highlight>
+            <highlight class="normal"><sp/>13<sp/>GPIO_ACTIVE_LOW&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">label</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"LED<sp/>0"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/><sp/>};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="keywordflow">&amp;uart0</highlight>
+            <highlight class="normal"><sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">status</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"okay"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">current-speed</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;115200&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="keyword">/delete-node/</highlight>
+            <highlight class="normal">
+              <sp/>
+            </highlight>
+            <highlight class="keywordflow">&amp;led0</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+        </programlisting>
+      </para>
+      <para>
+        <programlisting filename="example.dts">
+          <codeline>
+            <highlight class="keyword">/dts-v1/</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="keyword">/plugin/</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="comment">/*<sp/>A<sp/>block<sp/>comment</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="comment"><sp/>*<sp/>spanning<sp/>multiple<sp/>lines</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="comment"><sp/>*/</highlight>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="preprocessor">#include<sp/>"base.dtsi"</highlight>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal">/<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/>aliases<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">led0</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="keywordflow">&amp;led_0</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/>soc<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">#address-cells</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;1&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">#size-cells</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;1&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordflow">uart0:</highlight>
+            <highlight class="normal"><sp/>serial@40002000<sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">compatible</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"acme,uart"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">reg</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;0x40002000<sp/>0x1000&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">interrupts</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;2<sp/>1&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">status</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"disabled"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="keywordflow">&amp;uart0</highlight>
+            <highlight class="normal"><sp/>{</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">status</highlight>
+            <highlight class="normal"><sp/>=<sp/></highlight>
+            <highlight class="stringliteral">"okay"</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">
+              <sp/>
+              <sp/>
+              <sp/>
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">current-speed</highlight>
+            <highlight class="normal"><sp/>=<sp/>&lt;115200&gt;;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal">};</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="keyword">/memreserve/</highlight>
+            <highlight class="normal"><sp/>0x10000000<sp/>0x4000;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="keyword">/delete-property/</highlight>
+            <highlight class="normal">
+              <sp/>
+            </highlight>
+            <highlight class="keywordtype">dma-names</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+          <codeline>
+            <highlight class="normal"/>
+            <highlight class="keyword">/omit-if-no-ref/</highlight>
+            <highlight class="normal">
+              <sp/>
+            </highlight>
+            <highlight class="keywordflow">&amp;uart0</highlight>
+            <highlight class="normal">;</highlight>
+          </codeline>
+        </programlisting>
+      </para>
+    </detaileddescription>
+    <location file="121_devicetree.dox"/>
+  </compounddef>
+</doxygen>

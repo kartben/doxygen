@@ -47,6 +47,7 @@
 #include "docsets.h"
 #include "dot.h"
 #include "doxygen.h"
+#include "dtscode.h"
 #include "eclipsehelp.h"
 #include "emoji.h"
 #include "entry.h"
@@ -11301,6 +11302,8 @@ void initDoxygen()
                                                          make_parser_factory<FileCodeParser>());
   Doxygen::parserManager->registerParser("lex",          make_parser_factory<LexOutlineParser>(),
                                                          make_parser_factory<LexCodeParser>());
+  Doxygen::parserManager->registerParser("dts",          make_parser_factory<NullOutlineParser>(),
+                                                         make_parser_factory<DevicetreeCodeParser>());
 
   // register any additional parsers here...
 

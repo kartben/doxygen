@@ -59,6 +59,7 @@ static std::map< std::string, Debug::DebugMask > s_labels =
   { "lex:declinfo",       Debug::Lex_declinfo       },
   { "lex:defargs",        Debug::Lex_defargs        },
   { "lex:doctokenizer",   Debug::Lex_doctokenizer   },
+  { "lex:dtscode",        Debug::Lex_dtscode        },
   { "lex:fortrancode",    Debug::Lex_fortrancode    },
   { "lex:fortranscanner", Debug::Lex_fortranscanner },
   { "lex:lexcode",        Debug::Lex_lexcode        },

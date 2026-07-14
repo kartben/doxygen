@@ -94,6 +94,7 @@ set(LEX_FILES
     declinfo
     defargs
     doctokenizer
+    dtscode
     fortrancode
     fortranscanner
     lexcode
